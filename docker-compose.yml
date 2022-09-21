@@ -1,0 +1,35 @@
+version: "3"
+
+services:
+    php:
+        image: ratiu5/granny-php:rc-3
+        ports:
+            - "80:80"
+        volumes:
+            - .:/var/www/html/www
+        depends_on:
+            - mariadb
+        networks:
+            - dev-env
+    phpmyadmin:
+        image: phpmyadmin:latest
+        ports:
+            - 8080:80
+        environment:
+            - PMA_ARBITRARY=1
+            - PMA_HOST=mariadb
+        depends_on:
+            - mariadb
+        networks:
+            - dev-env
+    mariadb:
+        image: mariadb:latest
+        restart: always
+        environment:
+            MARIADB_ROOT_PASSWORD: "root"
+        ports:
+            - 3306:3306
+        networks:
+            - dev-env
+networks:
+    dev-env: {}
