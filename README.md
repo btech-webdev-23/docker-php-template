@@ -19,3 +19,4 @@ To start the PHP server, follow the instructions below.
     1. (Windows) Right-click on `start_server.sh` and select Open With->Powershell
     2. (Mac/Linux) Right-click on `start_server.sh` and select Open With->Terminal.app
     3. If neither of those work, open either Terminal (Mac/Linux) or Powershell (Windows) and paste the command `docker-compose up` and then press Enter to start the server
+4. Navigate to `localhost` in your browser once the server is running
